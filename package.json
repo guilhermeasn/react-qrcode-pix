@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Objetivo deste pacote é a de facilitar o recebimento de pagamentos com PIX em aplicações React",
   "main": "src/index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
