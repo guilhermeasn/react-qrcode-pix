@@ -13,6 +13,12 @@ function App() {
     
         <h1>Exemplos React Qrcode PIX</h1>
 
+        <p>
+            <a href='https://github.com/guilhermeasn/react-qrcode-pix'>
+                https://github.com/guilhermeasn/react-qrcode-pix    
+            </a>
+        </p>
+
         <hr />
 
         <h3>Minimal Configuration</h3>
@@ -33,6 +39,7 @@ function App() {
             city='Paraíba do Sul'
 
             onLoad={ payload => setMinimalPIX(payload) }
+            renderAs='canvas'
         />
 
         <p>{ minimalPIX }</p>
