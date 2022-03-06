@@ -1,0 +1,27 @@
+{
+  "name": "react-qrcode-pix",
+  "version": "1.0.0",
+  "description": "Objetivo deste pacote é a de facilitar o recebimento de pagamentos com PIX em aplicações React",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guilhermeasn/react-qrcode-pix.git"
+  },
+  "keywords": [
+    "react",
+    "qrcode",
+    "PIX"
+  ],
+  "author": "Guilherme Augusto Silva Neves <guilhermeasn@yahoo.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guilhermeasn/react-qrcode-pix/issues"
+  },
+  "homepage": "https://github.com/guilhermeasn/react-qrcode-pix#readme",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
