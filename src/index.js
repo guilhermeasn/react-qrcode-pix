@@ -1,5 +1,5 @@
+import QRCode from 'qrcode.react';
 import PIXclass from './PIX.class.js';
-import PixQrcode from './PixQrcode.class.js';
 
 /**
  * REACT-QRCODE-PIX
@@ -21,5 +21,30 @@ export function pixPayload(key = '', merchant = '', city = '', cep = '', code = 
 /**
  * Qrcode estático do PIX
  */
-export const PIX = PixQrcode;
-export default PixQrcode;
+export function PIX({
+    pixkey = '',
+    merchant = '',
+    city = '',
+    cep = '',
+    code = '***',
+    amount = null,
+    onLoad = payload => {},
+    ...props
+}) {
+
+    const pix = pixPayload(pixkey, merchant, city, cep, code, amount);
+
+    setTimeout(() => onLoad(pix));
+
+    return QRCode({
+        renderAs: 'svg',
+        size: 256,
+        level: 'M',
+        ...props,
+        value: pix
+    });
+
+}
+
+
+export default PIX;
