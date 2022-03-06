@@ -2,6 +2,8 @@ import PIX from 'react-qrcode-pix';
 import { useState } from 'react';
 
 
+const now = new Date().getTime();
+
 function App() {
 
     const [ minimalPIX, setMinimalPIX ] = useState('');
@@ -28,7 +30,7 @@ function App() {
             merchant='Guilherme Neves'
             city='Paraíba do Sul'
             cep='25.850-000'
-            code='TESTJS0001'
+            code={ 'RQP' + now }
             amount={ 100 }
 
             onLoad={ setFullPIX }
@@ -39,7 +41,7 @@ function App() {
         <p>{ fullPIX }</p>
 
         <hr />
-        
+
         <p>By Guilherme Neves</p>
 
     </>;
