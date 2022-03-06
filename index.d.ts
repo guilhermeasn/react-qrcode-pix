@@ -1,4 +1,4 @@
-import { ReactFragment } from "react";
+import { QRCode } from "qrcode.react";
 
 
 export function pixPayload(
@@ -38,7 +38,7 @@ export function PIX(props: {
 
     }
 
-}) : ReactFragment
+}) : QRCode
 
 
 export default PIX;
