@@ -1,5 +1,25 @@
-import PIX from './PIX.class.js';
+import QRCode from 'qrcode.react';
+import PIXclass from './PIX.class.js';
 
-let pix = new PIX('guilhermeasn@yahoo.com.br', 'Guilherme Neves', 'Paraíba do Sul', '25.850-000', 'TEST001', 100);
 
-console.log(pix.payload());
+export function pixPayload(key = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
+
+    const pix = new PIXclass(key, merchant, city, cep, code, amount);
+    return pix.payload();
+
+}
+
+
+export function PIX({ key = '', merchant = '', city = '', cep = '', code = '***', amount = null, ...props }) {
+
+    const pix = pixPayload(key, merchant, city, cep, code, amount);
+
+    return QRCode({
+        ...props,
+        value: pix
+    });
+
+}
+
+
+export default PIX;

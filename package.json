@@ -22,7 +22,8 @@
     "url": "https://github.com/guilhermeasn/react-qrcode-pix/issues"
   },
   "homepage": "https://github.com/guilhermeasn/react-qrcode-pix#readme",
-  "devDependencies": {
-    "typescript": "^4.6.2"
+  "dependencies": {
+    "qrcode.react": "^2.0.0",
+    "react": "^17.0.2"
   }
 }
