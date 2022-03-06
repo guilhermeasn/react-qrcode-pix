@@ -27,7 +27,7 @@ Formatos válidos de chave PIX:
 
 ## 🛠️ Exemplos de Uso
 
-Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn.github.io/react-qrcode-pix/).
+Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn.github.io/react-qrcode-pix/) ou veja em [sandbox](https://codesandbox.io/s/cool-resonance-rrcv9q?file=/src/App.js).
 
  - Configuração mínima, sem valor definido:
   
