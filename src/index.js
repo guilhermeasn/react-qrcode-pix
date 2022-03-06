@@ -1,6 +1,6 @@
 import QRCode from 'qrcode.react';
 import PIXclass from './PIX.class.js';
-
+import { useEffect } from 'react';
 
 /**
  * REACT-QRCODE-PIX
@@ -35,9 +35,12 @@ export function PIX({
 
     const pix = pixPayload(pixkey, merchant, city, cep, code, amount);
 
-    onLoad(pix);
+    setTimeout(() => onLoad(pix));
 
     return QRCode({
+        renderAs: 'svg',
+        size: 256,
+        level: 'M',
         ...props,
         value: pix
     });

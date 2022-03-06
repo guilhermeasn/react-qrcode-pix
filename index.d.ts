@@ -12,12 +12,14 @@ export function PIX(props: {
     amount ?: string|null,
     onLoad ?: (payload : string) => {},
     
-    size?: number | undefined;
-    includeMargin?: boolean | undefined;
-    bgColor?: string | undefined;
-    fgColor?: string | undefined;
-    level?: "L"|"M"|"Q"|"H" | undefined;
-    imageSettings?: ImageSettings | undefined;
+    size?: number | undefined,
+    includeMargin?: boolean | undefined,
+    bgColor?: string | undefined,
+    fgColor?: string | undefined,
+    level?: "L"|"M"|"Q"|"H" | undefined,
+    imageSettings?: ImageSettings | undefined,
+    
+    renderAs ?: 'canvas'|'svg' | undefined
 
 }) : ReactFragment
 
