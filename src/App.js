@@ -14,8 +14,16 @@ function App() {
         <h1>Exemplos React Qrcode PIX</h1>
 
         <p>
+            GITHUB:
             <a href='https://github.com/guilhermeasn/react-qrcode-pix'>
                 https://github.com/guilhermeasn/react-qrcode-pix    
+            </a>
+        </p>
+
+        <p>
+            SANDBOX:
+            <a href='https://codesandbox.io/s/cool-resonance-rrcv9q?file=/src/App.js'>
+            https://codesandbox.io/s/cool-resonance-rrcv9q?file=/src/App.js    
             </a>
         </p>
 
