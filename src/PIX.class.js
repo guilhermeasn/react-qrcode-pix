@@ -1,6 +1,7 @@
 import * as config from './constants.js';
 
 import {
+    verifyPixKey,
     removeAccent,
     padlen,
     CRC16
@@ -20,17 +21,20 @@ class PIX {
      /**
      * Carrega os dados do PIX
      *
-     * @param string key
+     * @param string pixkey
      * @param string merchant
      * @param string city
      * @param string cep
      * @param string code
      * @param float amount
      */
-    constructor(key = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
+    constructor(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
 
         // Verifica os parametros obrigatorios
-        if(!key || !merchant || !city) throw new Error('Os parametros: key, merchant e city, são obigatórios!');
+        if(!pixkey || !merchant || !city) throw new Error('Os parametros: pixkey (chave pix), merchant (nome do recebedor) e city (cidade do recebedor), são obigatórios!');
+
+        // Verifica se a chave parece valida
+        if(!verifyPixKey(pixkey)) console.error(`CUIDADO: A chave PIX (pixkey) '${pixkey}' parece ser inválida! Exemplos de formatos válidos: EMAIL: fulano_da_silva.recebedor@example.com | CPF: 12345678900 | CNPJ: 00038166000105 | TELEFONE: +5561912345678 | ALEATORIA: 123e4567-e12b-12d1-a456-426655440000`);
         
         /**
          * Chave PIX
@@ -44,7 +48,7 @@ class PIX {
          * 
          * @var string
          */
-        this.key = key.replace(/\s/gim, '').substring(0, 77);
+        this.pixkey = pixkey.replace(/\s/gim, '').substring(0, 77);
 
         /**
          * Nome de quem recebe o PIX
@@ -106,7 +110,7 @@ class PIX {
     getMerchantAccount() {
 
         let gui = '00' + padlen(config.MERCHANT_ACCOUNT_GUI) + config.MERCHANT_ACCOUNT_GUI;
-        let key = '01' + padlen(this.key) + this.key;
+        let key = '01' + padlen(this.pixkey) + this.pixkey;
 
         return '26' + padlen(gui + key) + gui + key;
 

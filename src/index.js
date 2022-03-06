@@ -1,6 +1,7 @@
 import QRCode from 'qrcode.react';
 import PIXclass from './PIX.class.js';
 
+
 /**
  * REACT-QRCODE-PIX
  * 
@@ -9,14 +10,15 @@ import PIXclass from './PIX.class.js';
 
 
 /**
- * Gera o payload para o poder usar no qrcode ou no sistema copia e cola do PIX
+ * Gera o payload para poder usar no qrcode ou no sistema copia e cola do PIX
 */
-export function pixPayload(key = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
+export function pixPayload(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
 
-    const pix = new PIXclass(key, merchant, city, cep, code, amount);
+    const pix = new PIXclass(pixkey, merchant, city, cep, code, amount);
     return pix.payload();
 
 }
+
 
 /**
  * Qrcode estático do PIX

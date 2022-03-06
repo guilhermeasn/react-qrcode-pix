@@ -62,3 +62,22 @@ export function CRC16(subject = '') {
     return result.toString(16).padStart(parseInt(CRC16_DEFAULT_LENGTH), '0').toUpperCase();
 
 }
+
+
+/**
+ * Verifica se o formato da chave pix parece valido
+ * 
+ * @param string pixkey 
+ * @return bool
+ */
+export function verifyPixKey(pixkey) {
+
+    return (
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/is.test(pixkey) ||  // Chave do tipo email
+        /^[0-9]{11}$/is.test(pixkey)                ||  // Chave do tipo CPF
+        /^[0-9]{14}$/is.test(pixkey)                ||  // Chave do tipo CNPJ
+        /^\+[0-9]{12,13}$/is.test(pixkey)           ||  // Chave do tipo telefone
+        /^[\w-]{32,36}$/is.test(pixkey)                 // Chave aleatoria
+    );
+  
+}
