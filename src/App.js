@@ -1,4 +1,4 @@
-import PIX from 'react-qrcode-pix';
+import { PIX } from 'react-qrcode-pix';
 import { useState } from 'react';
 
 
@@ -46,8 +46,7 @@ function App() {
             merchant='Guilherme Neves'
             city='Paraíba do Sul'
 
-            onLoad={ payload => setMinimalPIX(payload) }
-            renderAs='canvas'
+            onLoad={ setMinimalPIX }
         />
 
         <p>{ minimalPIX }</p>
@@ -77,7 +76,7 @@ function App() {
             code={ 'RQP' + now }
             amount={ 100 }
 
-            onLoad={ payload => setFullPIX(payload) }
+            onLoad={ setFullPIX }
         />
 
         <p>{ fullPIX }</p>
