@@ -56,7 +56,15 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
 
 ### Resultado
 
-![QrCode PIX](./qrcode-pix.png)
+- QRcode:
+  
+![QrCodePIX](./qrcode-pix.png)
+
+- Payload:
+
+```
+00020126470014BR.GOV.BCB.PIX0125guilhermeasn@yahoo.com.br5204000053039865802BR5915Guilherme Neves6014Paraiba do Sul62070503***6304D1F3
+```
 
 ## ✒️ Autor
 
