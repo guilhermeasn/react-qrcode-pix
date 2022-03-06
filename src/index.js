@@ -10,9 +10,20 @@ export function pixPayload(key = '', merchant = '', city = '', cep = '', code = 
 }
 
 
-export function PIX({ pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null, ...props }) {
+export function PIX({
+    pixkey = '',
+    merchant = '',
+    city = '',
+    cep = '',
+    code = '***',
+    amount = null,
+    onLoad = payload => {},
+    ...props
+}) {
 
     const pix = pixPayload(pixkey, merchant, city, cep, code, amount);
+
+    onLoad(pix);
 
     return QRCode({
         ...props,
