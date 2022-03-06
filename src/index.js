@@ -1,6 +1,5 @@
 import QRCode from 'qrcode.react';
 import PIXclass from './PIX.class.js';
-import { useEffect } from 'react';
 
 /**
  * REACT-QRCODE-PIX
