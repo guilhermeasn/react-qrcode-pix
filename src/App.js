@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import PIX from 'react-qrcode-pix';
+import { useState } from 'react';
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const [ minimalPIX, setMinimalPIX ] = useState('');
+    const [ fullPIX, setFullPIX ] = useState('');
+
+    return <>
+    
+        <h1>Exemplos React Qrcode PIX</h1>
+
+        <PIX
+            pixkey='guilhermeasn@yahoo.com.br'
+            merchant='Guilherme Neves'
+            city='Paraíba do Sul'
+
+            onLoad={ setMinimalPIX }
+
+            size={ 256 }
+        />
+
+        <p>{ minimalPIX }</p>
+
+        <PIX
+            pixkey='guilhermeasn@yahoo.com.br'
+            merchant='Guilherme Neves'
+            city='Paraíba do Sul'
+            cep='25.850-000'
+            code='TESTJS0001'
+            amount={ 100 }
+
+            onLoad={ setFullPIX }
+
+            size={ 256 }
+        />
+
+        <p>{ fullPIX }</p>
+
+        <hr />
+        
+        <p>By Guilherme Neves</p>
+
+    </>;
+
 }
 
 export default App;
