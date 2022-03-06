@@ -18,9 +18,7 @@ function App() {
             merchant='Guilherme Neves'
             city='Paraíba do Sul'
 
-            onLoad={ setMinimalPIX }
-
-            size={ 256 }
+            onLoad={ payload => setMinimalPIX(payload) }
         />
 
         <p>{ minimalPIX }</p>
@@ -33,9 +31,7 @@ function App() {
             code={ 'RQP' + now }
             amount={ 100 }
 
-            onLoad={ setFullPIX }
-
-            size={ 256 }
+            onLoad={ payload => setFullPIX(payload) }
         />
 
         <p>{ fullPIX }</p>
