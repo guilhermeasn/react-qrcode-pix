@@ -1,5 +1,6 @@
-import QRCode from 'qrcode.react';
-import PIXclass from './PIX.class.js';
+import React from 'react';
+import PIXpayload from './PIX.class.js';
+import PIXcomponent from './PIXcomponent.class.js';
 
 
 /**
@@ -14,7 +15,7 @@ import PIXclass from './PIX.class.js';
 */
 export function pixPayload(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
 
-    const pix = new PIXclass(pixkey, merchant, city, cep, code, amount);
+    const pix = new PIXpayload(pixkey, merchant, city, cep, code, amount);
     return pix.payload();
 
 }
@@ -23,30 +24,24 @@ export function pixPayload(pixkey = '', merchant = '', city = '', cep = '', code
 /**
  * Qrcode estático do PIX
  */
-export function PIX({
-    pixkey = '',
+export const PIX = ({
+
+    pixkey   = '',
     merchant = '',
-    city = '',
-    cep = '',
-    code = '***',
-    amount = null,
-    onLoad = payload => {},
+    city     = '',
+    cep      = '',
+    code     = '***',
+    amount   = null,
+    onLoad   = payload => {},
     ...props
-}) {
 
-    const pix = pixPayload(pixkey, merchant, city, cep, code, amount);
+}) => React.createElement(PIXcomponent, {
 
-    setTimeout(() => onLoad(pix));
+    payload: pixPayload(pixkey, merchant, city, cep, code, amount),
+    qrcode: props,
+    onLoad
 
-    return QRCode({
-        renderAs: 'svg',
-        size: 256,
-        level: 'M',
-        ...props,
-        value: pix
-    });
-
-}
+});
 
 
 export default PIX;

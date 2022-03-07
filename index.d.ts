@@ -29,9 +29,9 @@ export function PIX(props: {
     renderAs      ?: 'canvas'|'svg'
     imageSettings ?: {
 
-        src	      : string,	
-        x	     ?: number,
-        y	     ?: number,
+        src       : string,	
+        x        ?: number,
+        y        ?: number,
         height   ?: number,
         width    ?: number,
         excavate ?: boolean
