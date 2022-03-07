@@ -17,12 +17,12 @@ npm install react-qrcode-pix
 
 ## 🛠️ Configuração
 
-Propiedade do componente PIX:
+### Propiedade do componente PIX:
 
  - **pixkey**  ```<string>```: Chave PIX (obrigatório).
  - **merchant**  ```<string>```: Nome do recebedor (obrigatório).
  - **city**  ```<string>```: Cidade do recebedor (obrigatório).
- - **cep**  ```<string>```: CEP do recebedor (optional).
+ - **cep**  ```<string>```: CEP do recebedor (opcional).
  - **code**  ```<string>```: Código único para identificação do pagamento (opcional).
  - **amount**  ```<number>```: Valor da transação (opcional).
  - **onLoad** ```<function>```: Callback para receber o payload (opcional).
@@ -30,7 +30,7 @@ Propiedade do componente PIX:
 
 *Veja as propriedades relacionadas ao qrcode [aqui](https://github.com/zpao/qrcode.react#available-props).*
 
-Formatos válidos de chave PIX (pixkey):
+### Formatos válidos de chave PIX (pixkey):
 
  - **EMAIL**: fulano_da_silva.recebedor@example.com
  - **CPF**: 12345678900
