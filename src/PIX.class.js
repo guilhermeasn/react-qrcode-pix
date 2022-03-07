@@ -89,7 +89,7 @@ class PIX {
          *
          * @var string
          */
-        this.amount = (amount === null) ? null : parseFloat(amount).toFixed(2);
+        this.amount = (typeof amount === 'number') ? parseFloat(amount).toFixed(2) : null;
 
     }
 
