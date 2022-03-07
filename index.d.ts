@@ -2,12 +2,15 @@ import { QRCode } from "qrcode.react";
 
 
 export function pixPayload(
-    key       : string,
-    merchant  : string,
-    city      : string,
-    cep      ?: string,
-    code     ?: string,
-    amount   ?: string|null
+
+    key           : string,
+    merchant      : string,
+    city          : string,
+    cep          ?: string,
+    code         ?: string,
+    amount       ?: string|null,
+    ignoreErrors ?: boolean   
+    
 ) : string;
 
 
