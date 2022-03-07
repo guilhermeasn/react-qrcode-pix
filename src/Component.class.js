@@ -4,28 +4,23 @@ import QRCode from 'qrcode.react';
 
 export default class Component extends React.Component {
 
-    constructor(props) {
+    componentDidUpdate() {
+        if(typeof this.props.onLoad === 'function') {
+            this.props.onLoad(this.props.payload || '');
+        }
+    }
+    
 
-        super(props);
+    render() {
 
-        this.state = {
+        return React.createElement(QRCode, {
             renderAs: 'svg',
             level: 'M',
             size: 256,
-            ...props.config,
-            value: props.payload || ''
-        }
+            ...this.props.config,
+            value: this.props.payload || ''
+        });
 
-    }
-
-    componentDidMount() {
-        if(typeof this.props.onLoad === 'function') {
-            this.props.onLoad(this.state.value);
-        }
-    }
-
-    render() {
-        return React.createElement(QRCode, this.state);
     }
 
 }
