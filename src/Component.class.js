@@ -2,7 +2,7 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 
 
-export default class PIXcomponent extends React.Component {
+export default class Component extends React.Component {
 
     constructor(props) {
 
@@ -10,10 +10,10 @@ export default class PIXcomponent extends React.Component {
 
         this.state = {
             renderAs: 'svg',
-            size: 256,
             level: 'M',
-            value: props.payload || '',
-            ...props.qrcode
+            size: 256,
+            ...props.config,
+            value: props.payload || ''
         }
 
     }
@@ -25,7 +25,7 @@ export default class PIXcomponent extends React.Component {
     }
 
     render() {
-        return QRCode(this.state);
+        return React.createElement(QRCode, this.state);
     }
 
 }

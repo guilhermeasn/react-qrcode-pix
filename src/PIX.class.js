@@ -28,13 +28,17 @@ class PIX {
      * @param string code
      * @param float amount
      */
-    constructor(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null) {
+    constructor(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null, ignoreErrors = false) {
 
-        // Verifica os parametros obrigatorios
-        if(!pixkey || !merchant || !city) throw new Error('Os parametros: pixkey (chave pix), merchant (nome do recebedor) e city (cidade do recebedor), são obigatórios!');
+        if(!ignoreErrors) {
 
-        // Verifica se a chave parece valida
-        if(!verifyPixKey(pixkey)) console.error(`CUIDADO: A chave PIX (pixkey) '${pixkey}' parece ser inválida! Exemplos de formatos válidos: EMAIL: fulano_da_silva.recebedor@example.com | CPF: 12345678900 | CNPJ: 00038166000105 | TELEFONE: +5561912345678 | ALEATORIA: 123e4567-e12b-12d1-a456-426655440000`);
+            // Verifica os parametros obrigatorios
+            if(!pixkey || !merchant || !city) throw new Error('Os parametros: pixkey (chave pix), merchant (nome do recebedor) e city (cidade do recebedor), são obigatórios!');
+
+            // Verifica se a chave eh valida
+            if(!verifyPixKey(pixkey)) throw new Error(`A chave PIX (pixkey) '${pixkey}' parece ser inválida! Exemplos de formatos válidos: EMAIL: fulano_da_silva.recebedor@example.com | CPF: 12345678900 | CNPJ: 00038166000105 | TELEFONE: +5561912345678 | ALEATORIA: 123e4567-e12b-12d1-a456-426655440000`);
+
+        }
         
         /**
          * Chave PIX

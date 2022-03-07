@@ -13,13 +13,14 @@ export function pixPayload(
 
 export function PIX(props: {
 
-    pixkey    : string,
-    merchant  : string,
-    city      : string,
-    cep      ?: string,
-    code     ?: string,
-    amount   ?: string|null,
-    onLoad   ?: (payload : string) => {},
+    pixkey        : string,
+    merchant      : string,
+    city          : string,
+    cep          ?: string,
+    code         ?: string,
+    amount       ?: string|null,
+    onLoad       ?: (payload : string) => {},
+    ignoreErrors ?: boolean,
     
     size          ?: number,
     includeMargin ?: boolean,
