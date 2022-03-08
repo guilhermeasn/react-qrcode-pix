@@ -85,7 +85,7 @@ class PIX {
          *
          * @var string
          */
-        this.code = (code === '***') ? code : removeAccent(code, /[^a-z0-9]/gim).substring(0, 25).toUpperCase();
+        this.code = removeAccent(code, /[^a-z0-9]/gim).substring(0, 25).toUpperCase() || '***';
 
         /**
          * Valor do PIX
