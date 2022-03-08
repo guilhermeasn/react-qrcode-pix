@@ -26,17 +26,21 @@ class PIX {
      * @param string city
      * @param string cep
      * @param string code
-     * @param float amount
+     * @param number|null amount
+     * @param boolean ignoreErrors
      */
     constructor(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null, ignoreErrors = false) {
 
         if(!ignoreErrors) {
 
             // Verifica os parametros obrigatorios
-            if(!pixkey || !merchant || !city) throw new Error('Os parametros: pixkey (chave pix), merchant (nome do recebedor) e city (cidade do recebedor), são obigatórios!');
+            if(!pixkey || !merchant || !city) throw new Error('As propriedades: pixkey (chave pix), merchant (nome do recebedor) e city (cidade do recebedor), são obigatórios!');
 
             // Verifica se a chave eh valida
             if(!verifyPixKey(pixkey)) throw new Error(`A chave PIX (pixkey) '${pixkey}' parece ser inválida! Exemplos de formatos válidos: EMAIL: fulano_da_silva.recebedor@example.com | CPF: 12345678900 | CNPJ: 00038166000105 | TELEFONE: +5561912345678 | ALEATORIA: 123e4567-e12b-12d1-a456-426655440000`);
+
+            // Verifica se amount recebeu um valor valido
+            if(typeof amount !== 'number' && amount !== null) throw new Error('A propriedade amount deve receber um valor numérico ou nulo!');
 
         }
         
@@ -89,7 +93,7 @@ class PIX {
          *
          * @var string
          */
-        this.amount = (typeof amount === 'number') ? parseFloat(amount).toFixed(2) : null;
+        this.amount = (typeof amount === 'number' && amount > 0) ? parseFloat(amount).toFixed(2) : null;
 
     }
 

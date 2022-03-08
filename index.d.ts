@@ -8,7 +8,7 @@ export function pixPayload(
     city          : string,
     cep          ?: string,
     code         ?: string,
-    amount       ?: string|null,
+    amount       ?: number|null,
     ignoreErrors ?: boolean   
     
 ) : string;
@@ -21,7 +21,7 @@ export function PIX(props: {
     city          : string,
     cep          ?: string,
     code         ?: string,
-    amount       ?: string|null,
+    amount       ?: number|null,
     onLoad       ?: (payload : string) => {},
     ignoreErrors ?: boolean,
     

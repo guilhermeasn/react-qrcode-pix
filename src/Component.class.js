@@ -2,14 +2,14 @@ import React from 'react';
 import QRCode from 'qrcode.react';
 
 
-export default class Component extends React.Component {
+/**
+ * Component React
+ * 
+ * @author Guilherme Neves <guilhermeasn@yahoo.com.br>
+ */
 
-    componentDidUpdate() {
-        if(typeof this.props.onLoad === 'function') {
-            this.props.onLoad(this.props.payload || '');
-        }
-    }
-    
+
+export default class Component extends React.Component {
 
     render() {
 
@@ -21,6 +21,30 @@ export default class Component extends React.Component {
             value: this.props.payload || ''
         });
 
+    }
+
+    componentDidMount() {
+
+        if(typeof this.props.onLoad === 'function') {
+            this.props.onLoad(this.props.payload || '');
+        }
+
+    }
+
+    componentDidUpdate() {
+
+        if(typeof this.props.onLoad === 'function') {
+            this.props.onLoad(this.props.payload || '');
+        }
+
+    }
+
+    componentWillUnmount() {
+
+        if(typeof this.props.onLoad === 'function') {
+            this.props.onLoad('');
+        }
+        
     }
 
 }
