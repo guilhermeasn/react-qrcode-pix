@@ -29,15 +29,13 @@ function App() {
 
         <h3>Minimal Configuration</h3>
 
-        <code>{`
-            <PIX
-                pixkey='guilhermeasn@yahoo.com.br'
-                merchant='Guilherme Neves'
-                city='Paraíba do Sul'
-
-                onLoad={ payload => setMinimalPIX(payload) }
-            />
-        `}</code>
+        <code><pre>{`
+<PIX
+    pixkey='guilhermeasn@yahoo.com.br'
+    merchant='Guilherme Neves'
+    city='Paraíba do Sul'
+/>
+        `}</pre></code>
 
         <PIX
             pixkey='guilhermeasn@yahoo.com.br'
@@ -53,18 +51,27 @@ function App() {
 
         <h3>Fully configuration</h3>
 
-        <code>{`
-            <PIX
-                pixkey='guilhermeasn@yahoo.com.br'
-                merchant='Guilherme Neves'
-                city='Paraíba do Sul'
-                cep='25.850-000'
-                code={ 'RQP' + now }
-                amount={ 100 }
+        <code><pre>{`
+<PIX
+    pixkey='guilhermeasn@yahoo.com.br'
+    merchant='Guilherme Neves'
+    city='Paraíba do Sul'
+    cep='25.850-000'
+    code={ 'RQP' + now }
+    amount={ 100 }
 
-                onLoad={ payload => setFullPIX(payload) }
-            />
-        `}</code>
+    onLoad={ setFullPIX }
+
+    level='Q'
+
+    imageSettings={{
+        src: './PIX-icon.svg',
+        height: 50,
+        width: 50,
+        excavate: true
+    }}
+/>
+        `}</pre></code>
 
         <PIX
             pixkey='guilhermeasn@yahoo.com.br'
@@ -75,6 +82,15 @@ function App() {
             amount={ 100 }
 
             onLoad={ setFullPIX }
+
+            level='Q'
+            
+            imageSettings={{
+                src: './PIX-icon.svg',
+                height: 50,
+                width: 50,
+                excavate: true
+            }}
         />
 
         <p>{ fullPIX }</p>
