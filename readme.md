@@ -85,4 +85,4 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
 
 ## 📄 Licença
 
-Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://github.com/guilhermeasn/react-qrcode-pix/blob/master/LICENSE) para detalhes.
+Este projeto está sob a licença MIT - veja o arquivo [LICENSE](https://github.com/guilhermeasn/react-qrcode-pix/blob/master/LICENSE) para detalhes.
