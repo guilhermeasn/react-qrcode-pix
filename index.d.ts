@@ -1,7 +1,7 @@
 import { QRCode } from "qrcode.react";
 
 
-export function pixPayload(
+export function payload(
 
     key           : string,
     merchant      : string,
@@ -34,10 +34,10 @@ export function PIX(props: {
     imageSettings ?: {
 
         src       : string,	
+        height    : number,
+        width     : number,
         x        ?: number,
         y        ?: number,
-        height   ?: number,
-        width    ?: number,
         excavate ?: boolean
 
     }
