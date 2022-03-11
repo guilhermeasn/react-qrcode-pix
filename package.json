@@ -4,7 +4,7 @@
   "description": "Objetivo deste pacote é a de facilitar o recebimento de pagamentos com PIX em aplicações React",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --silent --testPathIgnorePatterns=config.js"
   },
   "repository": {
     "type": "git",
@@ -24,5 +24,12 @@
   "dependencies": {
     "qrcode.react": "^2.0.0",
     "react": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "babel-jest": "^27.5.1",
+    "jest": "^27.5.1",
+    "react-test-renderer": "^17.0.2"
   }
 }
