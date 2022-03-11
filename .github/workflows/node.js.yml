@@ -32,5 +32,8 @@ jobs:
     - name: Install modules
       run: yarn
       
+    - name: Node version
+      run: node -v
+      
     - name: Run tests
       run: yarn test
