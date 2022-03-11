@@ -1,5 +1,9 @@
 # React QRcode PIX
 
+[![tests](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node.js.yml/badge.svg)](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node.js.yml)
+
+[![example](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/pages/pages-build-deployment/badge.svg)](https://guilhermeasn.github.io/react-qrcode-pix/)
+
 Objetivo deste pacote é a de facilitar o recebimento de pagamentos com PIX em aplicações React. Gerando o Qrcode estático para pagamento.
 
 O *payload* do qrcode foi desenvolvido seguindo os documentos oficiais do BACEN:
