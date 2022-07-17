@@ -97,7 +97,17 @@ function App() {
 
         <hr />
 
-        <p>By Guilherme Neves</p>
+        <div style={{
+            display: 'flex',
+            justifyContent: 'space-between'
+        }}>
+            <small>
+                MIT License
+            </small>
+            <a href='http://gn.dev.br/' target='_blank' rel='noreferrer'>
+                &lt;gn.dev.br/&gt;
+            </a>
+        </div>
 
     </>;
 
