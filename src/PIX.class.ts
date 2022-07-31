@@ -1,12 +1,3 @@
-/**
- * Classe para gerar o payload para o qrcode estatico do PIX
- * 
- * @see https://www.bcb.gov.br/content/estabilidadefinanceira/spb_docs/ManualBRCode.pdf
- * @see https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/II_ManualdePadroesparaIniciacaodoPix.pdf
- * 
- * @author Guilherme Neves <guilhermeasn@yahoo.com.br>
- */
-
 export type PIXProps = {
 
     /**
@@ -55,6 +46,14 @@ export type PIXProps = {
 
 }
 
+/**
+ * Classe para gerar o payload para o qrcode estatico do PIX
+ * 
+ * @see https://www.bcb.gov.br/content/estabilidadefinanceira/spb_docs/ManualBRCode.pdf
+ * @see https://www.bcb.gov.br/content/estabilidadefinanceira/pix/Regulamento_Pix/II_ManualdePadroesparaIniciacaodoPix.pdf
+ * 
+ * @author Guilherme Neves <guilhermeasn@yahoo.com.br>
+ */
 export default class PIX {
 
     /* ATRIBUTOS E METODOS ESTATICOS */
@@ -158,7 +157,7 @@ export default class PIX {
             merchant: PIX.removeAccent(merchant, /[^a-z\s]/gim).substring(0, 80),
             city:     PIX.removeAccent(city, /[^a-z\s]/gim).substring(0, 80),
             cep:      cep ? cep.replace(/[^0-9]/gim, '').substring(0, 8) : null,
-            code:     code ? PIX.removeAccent(code, /[^a-z0-9]/gim).substring(0, 25).toUpperCase() || '***' : '***',
+            code:     PIX.removeAccent(code || '', /[^a-z0-9]/gim).substring(0, 25).toUpperCase() || '***',
             amount:   amount && amount > 0 ? amount : null,
 
             ignoreErrors
