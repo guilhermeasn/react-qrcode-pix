@@ -7,7 +7,7 @@
   "types": "dist/types/index.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "rimraf dist && tsc --project tsconfig.json && tsc --project module.tsconfig.json"
+    "build": "rimraf dist && tsc --project tsconfig.json && tsc --project tsconfig.m.json"
   },
   "repository": {
     "type": "git",
