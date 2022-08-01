@@ -13,10 +13,16 @@ O *payload* do qrcode foi desenvolvido seguindo os documentos oficiais do BACEN:
 
 ## 🚀 Instalação
 
-Para instalar no seu projeto utilize o comando abaixo:
+Para instalar no seu projeto React com NPM utilize o comando abaixo:
 
 ```
 npm install react-qrcode-pix
+```
+
+Ou instale com Yarn:
+
+```
+yarn add react-qrcode-pix
 ```
 
 ## 🛠️ Configuração
