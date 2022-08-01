@@ -13,10 +13,16 @@ O *payload* do qrcode foi desenvolvido seguindo os documentos oficiais do BACEN:
 
 ## 🚀 Instalação
 
-Para instalar no seu projeto utilize o comando abaixo:
+Para instalar no seu projeto React com NPM utilize o comando abaixo:
 
 ```
 npm install react-qrcode-pix
+```
+
+Ou instale com Yarn:
+
+```
+yarn add react-qrcode-pix
 ```
 
 ## 🛠️ Configuração
@@ -32,7 +38,7 @@ npm install react-qrcode-pix
  - **onLoad** ```<function>```: Callback para receber o payload (opcional).
  - **ignoreErrors** ```<boolean>```: Para não validar as informações (opcional).
 
-*Veja as propriedades relacionadas ao qrcode [aqui](https://github.com/zpao/qrcode.react#available-props).*
+*Veja as propriedades relacionadas ao qrcode [aqui](https://github.com/gcoro/react-qrcode-logo#props).*
 
 ### Formatos válidos de chave PIX (pixkey):
 
@@ -85,7 +91,7 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
 
 ## ✒️ Autor
 
-* **Guilherme Neves** - [repositórios github](https://github.com/guilhermeasn/)
+* **Guilherme Neves** - [repositórios github](https://github.com/guilhermeasn/) - [website](https://gn.dev.br)
 
 ## 📄 Licença
 

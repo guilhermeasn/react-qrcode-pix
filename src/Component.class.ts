@@ -1,24 +1,25 @@
 import React from 'react';
-import QRCode from 'qrcode.react';
+import { QRCode } from 'react-qrcode-logo';
+import type { IProps } from 'react-qrcode-logo';
 
+export type ComponentProps = {
+    settings : IProps,
+    payload  : string,
+    onLoad   : (payload : string) => void
+}
 
 /**
- * Component React
+ * Component React com o QrCode para receber o payload do PIX
  * 
  * @author Guilherme Neves <guilhermeasn@yahoo.com.br>
  */
-
-
-export default class Component extends React.Component {
+export default class Component extends React.Component<ComponentProps> {
 
     render() {
 
         return React.createElement(QRCode, {
-            renderAs: 'svg',
-            level: 'M',
-            size: 256,
-            ...this.props.config,
-            value: this.props.payload || ''
+            ...this.props.settings,
+            value: this.props.payload
         });
 
     }

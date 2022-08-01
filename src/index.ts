@@ -1,6 +1,8 @@
 import React from 'react';
-import PixPayload from './PIX.class.js';
-import Component from './Component.class.js';
+import PixPayload from './PIX.class';
+import type { PIXProps } from './PIX.class';
+import Component from './Component.class';
+import type { IProps } from 'react-qrcode-logo';
 
 
 /**
@@ -13,49 +15,46 @@ import Component from './Component.class.js';
 /**
  * Gera o payload para poder usar no qrcode ou no sistema copia e cola do PIX
  */
-export function payload(pixkey = '', merchant = '', city = '', cep = '', code = '***', amount = null, ignoreErrors = false) {
+export function payload(props : PIXProps) {
 
-    const pix = new PixPayload(pixkey, merchant, city, cep, code, amount, ignoreErrors);
+    const pix = new PixPayload(props);
     return pix.payload();
 
 }
 
-
 /**
- * Qrcode estático do PIX
+ * Qrcode estatico do PIX
  */
 export function PIX({
-
-    pixkey       = '',
-    merchant     = '',
-    city         = '',
-    cep          = '',
-    code         = '***',
-    amount       = null,
+    pixkey,
+    merchant,
+    city,
+    cep,
+    code,
+    amount,
     ignoreErrors = false,
-    onLoad       = payload => {},
-    ...config
+    onLoad = (_ : string) => {},
+    ...settings
+} : PIXProps & IProps & { onLoad ?: (payload : string) => void }) {
 
-}) {
+    if(!settings.size) settings.size = 256;
 
     try {
 
         return React.createElement(Component, {
-            payload: payload(pixkey, merchant, city, cep, code, amount, ignoreErrors),
-            config,
+            payload: payload({ pixkey, merchant, city, cep, code, amount, ignoreErrors }),
+            settings,
             onLoad
         });
 
     } catch(error) {
 
-        console.error(error);
-
-        const size = typeof config.size === 'number' ? config.size : 256;
+        if(process.env.NODE_ENV !== 'test') console.error(error);
 
         return React.createElement('div', {
             style: {
-                width: size,
-                height: size,
+                width: settings.size,
+                height: settings.size,
                 margin: '10px 0',
                 display: 'flex',
                 justifyContent: 'center',
@@ -74,6 +73,5 @@ export function PIX({
     }
 
 } 
-
 
 export default PIX;
