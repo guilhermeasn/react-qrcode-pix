@@ -62,14 +62,13 @@ function App() {
 
     onLoad={ setFullPIX }
 
-    level='Q'
+    ecLevel='Q'
 
-    imageSettings={{
-        src: './PIX-icon.svg',
-        height: 50,
-        width: 50,
-        excavate: true
-    }}
+    logoImage='./PIX-icon.svg'
+    logoWidth={ 50 }
+    logoHeight={ 50 }
+    removeQrCodeBehindLogo={ true }
+    qrStyle='dots'
 />
         `}</pre></code>
 
@@ -83,14 +82,14 @@ function App() {
 
             onLoad={ setFullPIX }
 
-            level='Q'
-            
-            imageSettings={{
-                src: './PIX-icon.svg',
-                height: 50,
-                width: 50,
-                excavate: true
-            }}
+            ecLevel='Q'
+
+            logoImage='./PIX-icon.svg'
+            logoWidth={ 50 }
+            logoHeight={ 50 }
+            removeQrCodeBehindLogo={ true }
+            qrStyle='dots'
+
         />
 
         <p>{ fullPIX }</p>
