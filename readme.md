@@ -1,8 +1,10 @@
 # React QRcode PIX
 
-[![tests](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node.js.yml/badge.svg)](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node.js.yml)
+[![Tests](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node_tests.yml/badge.svg)](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node_tests.yml)
 
 [![example](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/pages/pages-build-deployment/badge.svg)](https://guilhermeasn.github.io/react-qrcode-pix/)
+
+[![downloads](https://img.shields.io/npm/dt/react-qrcode-pix)](https://www.npmjs.com/package/react-qrcode-pix/)
 
 Objetivo deste pacote é a de facilitar o recebimento de pagamentos com PIX em aplicações React. Gerando o Qrcode estático para pagamento.
 
