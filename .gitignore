@@ -2,3 +2,4 @@
 /example
 /node_modules
 /.old_files
+/tests/__snapshots__

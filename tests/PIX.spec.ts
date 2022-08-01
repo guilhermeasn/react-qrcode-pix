@@ -1,7 +1,7 @@
 import PIX from '../src/PIX.class';
 import data from './data.json';
 
-describe('Testing PIX class', () => {
+describe('Testando a classe PIX', () => {
 
     function findWords(...words : string[]) : RegExp {
         return new RegExp('(' + words.join(').*(') + ')', 'gim');

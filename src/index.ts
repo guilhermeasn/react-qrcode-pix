@@ -35,7 +35,7 @@ export function PIX({
     ignoreErrors = false,
     onLoad = (_ : string) => {},
     ...settings
-} : PIXProps & IProps & { onLoad : (payload : string) => void }) {
+} : PIXProps & IProps & { onLoad ?: (payload : string) => void }) {
 
     if(!settings.size) settings.size = 256;
 
@@ -49,7 +49,7 @@ export function PIX({
 
     } catch(error) {
 
-        console.error(error);
+        if(process.env.NODE_ENV !== 'test') console.error(error);
 
         return React.createElement('div', {
             style: {
