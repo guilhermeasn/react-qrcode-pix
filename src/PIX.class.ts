@@ -68,7 +68,25 @@ export default class PIX {
         MERCHANT_CATEGORY_CODE: '0000',
         TRANSACTION_CURRENCY:   '986',
         COUNTRY_CODE:           'BR',
-        CRC16_LENGTH:           '04'
+        CRC16_LENGTH:           4
+
+    }
+
+    /*
+     *  Adiciona zeros a esquerda quando necessario para manter derterminado comprimento
+     */
+    public static padder(number : number, minlenght : number = 2) : string {
+
+        const target : string = number.toString(); 
+        let complement : string = '';
+
+        if(target.length >= minlenght) return target;
+
+        for(let c = 0; c < minlenght; c++) {
+            complement += '0';
+        }
+
+        return (complement + target).slice(target.length);
 
     }
 
@@ -80,7 +98,7 @@ export default class PIX {
         if(ID > 99) throw new Error('O ID do EVM pode ter no máximo duas casas decimais!');
         if(content.length > 99) throw new Error('O conteúdo do EVM pode ter no máximo noventa e nove caracters e espacos!'); 
         
-        return ID.toString().padStart(2, '0') + content.length.toString().padStart(2, '0') + content;
+        return PIX.padder(ID) + PIX.padder(content.length) + content;
 
     }
 
@@ -166,6 +184,9 @@ export default class PIX {
 
     }
 
+    /*
+     * Recupera uma propriedade da instancia
+     */
     public get(prop : keyof PIXProps) : PIXProps[typeof prop] {
         return this._props[prop];
     }
@@ -255,7 +276,7 @@ export default class PIX {
      * Init CRC16 - ID 63
      */
     public getInitCRC16() : string {
-        return '63' + PIX.constants.CRC16_LENGTH;
+        return '63' + PIX.padder(PIX.constants.CRC16_LENGTH);
     }
 
     /**
@@ -279,7 +300,7 @@ export default class PIX {
             
         ].join('');
 
-        return payload + PIX.CRC16(payload, parseInt(PIX.constants.CRC16_LENGTH));
+        return payload + PIX.CRC16(payload, PIX.constants.CRC16_LENGTH);
 
     }
 

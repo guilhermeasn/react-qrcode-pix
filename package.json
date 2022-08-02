@@ -1,6 +1,6 @@
 {
   "name": "react-qrcode-pix",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Objetivo deste pacote é a de facilitar o recebimento de pagamentos com PIX em aplicações React",
   "main": "dist/common/index.js",
   "module": "dist/module/index.js",

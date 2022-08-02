@@ -14,8 +14,9 @@ export default class PIX {
         MERCHANT_CATEGORY_CODE: string;
         TRANSACTION_CURRENCY: string;
         COUNTRY_CODE: string;
-        CRC16_LENGTH: string;
+        CRC16_LENGTH: number;
     };
+    static padder(number: number, minlenght?: number): string;
     static EVM(ID: number, content: string): string;
     static removeAccent(subject: string, extra_filter?: RegExp | string): string;
     static CRC16(subject: string, length: number): string;

@@ -18,12 +18,22 @@ export default class PIX {
             ignoreErrors
         };
     }
+    static padder(number, minlenght = 2) {
+        const target = number.toString();
+        let complement = '';
+        if (target.length >= minlenght)
+            return target;
+        for (let c = 0; c < minlenght; c++) {
+            complement += '0';
+        }
+        return (complement + target).slice(target.length);
+    }
     static EVM(ID, content) {
         if (ID > 99)
             throw new Error('O ID do EVM pode ter no máximo duas casas decimais!');
         if (content.length > 99)
             throw new Error('O conteúdo do EVM pode ter no máximo noventa e nove caracters e espacos!');
-        return ID.toString().padStart(2, '0') + content.length.toString().padStart(2, '0') + content;
+        return PIX.padder(ID) + PIX.padder(content.length) + content;
     }
     static removeAccent(subject, extra_filter = /[^\w\s]/gim) {
         return subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '');
@@ -88,7 +98,7 @@ export default class PIX {
         return PIX.EVM(62, label);
     }
     getInitCRC16() {
-        return '63' + PIX.constants.CRC16_LENGTH;
+        return '63' + PIX.padder(PIX.constants.CRC16_LENGTH);
     }
     payload() {
         const payload = [
@@ -104,7 +114,7 @@ export default class PIX {
             this.getAdditionalData(),
             this.getInitCRC16()
         ].join('');
-        return payload + PIX.CRC16(payload, parseInt(PIX.constants.CRC16_LENGTH));
+        return payload + PIX.CRC16(payload, PIX.constants.CRC16_LENGTH);
     }
     toString() {
         return this.payload();
@@ -116,5 +126,5 @@ PIX.constants = {
     MERCHANT_CATEGORY_CODE: '0000',
     TRANSACTION_CURRENCY: '986',
     COUNTRY_CODE: 'BR',
-    CRC16_LENGTH: '04'
+    CRC16_LENGTH: 4
 };

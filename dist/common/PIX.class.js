@@ -21,12 +21,23 @@ var PIX = (function () {
             ignoreErrors: ignoreErrors
         };
     }
+    PIX.padder = function (number, minlenght) {
+        if (minlenght === void 0) { minlenght = 2; }
+        var target = number.toString();
+        var complement = '';
+        if (target.length >= minlenght)
+            return target;
+        for (var c = 0; c < minlenght; c++) {
+            complement += '0';
+        }
+        return (complement + target).slice(target.length);
+    };
     PIX.EVM = function (ID, content) {
         if (ID > 99)
             throw new Error('O ID do EVM pode ter no máximo duas casas decimais!');
         if (content.length > 99)
             throw new Error('O conteúdo do EVM pode ter no máximo noventa e nove caracters e espacos!');
-        return ID.toString().padStart(2, '0') + content.length.toString().padStart(2, '0') + content;
+        return PIX.padder(ID) + PIX.padder(content.length) + content;
     };
     PIX.removeAccent = function (subject, extra_filter) {
         if (extra_filter === void 0) { extra_filter = /[^\w\s]/gim; }
@@ -92,7 +103,7 @@ var PIX = (function () {
         return PIX.EVM(62, label);
     };
     PIX.prototype.getInitCRC16 = function () {
-        return '63' + PIX.constants.CRC16_LENGTH;
+        return '63' + PIX.padder(PIX.constants.CRC16_LENGTH);
     };
     PIX.prototype.payload = function () {
         var payload = [
@@ -108,7 +119,7 @@ var PIX = (function () {
             this.getAdditionalData(),
             this.getInitCRC16()
         ].join('');
-        return payload + PIX.CRC16(payload, parseInt(PIX.constants.CRC16_LENGTH));
+        return payload + PIX.CRC16(payload, PIX.constants.CRC16_LENGTH);
     };
     PIX.prototype.toString = function () {
         return this.payload();
@@ -119,7 +130,7 @@ var PIX = (function () {
         MERCHANT_CATEGORY_CODE: '0000',
         TRANSACTION_CURRENCY: '986',
         COUNTRY_CODE: 'BR',
-        CRC16_LENGTH: '04'
+        CRC16_LENGTH: 4
     };
     return PIX;
 }());
