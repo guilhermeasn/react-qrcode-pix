@@ -7097,10 +7097,10 @@ react-qrcode-logo@^2.7.0:
     lodash.isequal "^4.5.0"
     qrcode-generator "^1.4.1"
 
-react-qrcode-pix@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/react-qrcode-pix/-/react-qrcode-pix-3.0.0.tgz#499c12d29c88e2425960c92b64b8386a991e146a"
-  integrity sha512-+uS9pHPmt6urxfN/uBvlyEed7JeNmr9B44t+IM4YQNJLAPGD86T/7EHXoCpXZYAu+ibbaba5PS106LIHvwzElg==
+react-qrcode-pix@^3.1.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/react-qrcode-pix/-/react-qrcode-pix-3.1.0.tgz#3142597ecd11ae16e5f58c2397299d61ad8ab0c3"
+  integrity sha512-KsTNpT9NnD+oITAt21iZd9XE5JOtBHwN76MKEWxpq+7CRYeUY2UErmlmw+vHP6z5+6DAa0guy/eNjLXkmf0k8A==
   dependencies:
     react "^18.2.0"
     react-dom "^18.2.0"
