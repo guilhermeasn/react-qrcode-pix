@@ -18,12 +18,13 @@ export default class PIX {
             ignoreErrors
         };
     }
-    static padder(number, minlenght = 2) {
-        const target = number.toString();
+    static padder(subject, lenght = 2) {
+        const target = subject.toString();
         let complement = '';
-        if (target.length >= minlenght)
-            return target;
-        for (let c = 0; c < minlenght; c++) {
+        if (target.length > lenght) {
+            throw new Error(`O comprimento de '${subject}' é maior que ${lenght}`);
+        }
+        for (let c = 0; c < lenght; c++) {
             complement += '0';
         }
         return (complement + target).slice(target.length);
@@ -38,7 +39,7 @@ export default class PIX {
     static removeAccent(subject, extra_filter = /[^\w\s]/gim) {
         return subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '');
     }
-    static CRC16(subject, length) {
+    static CRC16(subject) {
         let result = 0xFFFF;
         if (subject.length > 0) {
             for (let offset = 0; offset < subject.length; offset++) {
@@ -50,7 +51,7 @@ export default class PIX {
                 }
             }
         }
-        return result.toString(16).padStart(length, '0').toUpperCase();
+        return result.toString(16).toUpperCase();
     }
     static verifyPixKey(pixkey) {
         return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/is.test(pixkey) ||
@@ -114,7 +115,7 @@ export default class PIX {
             this.getAdditionalData(),
             this.getInitCRC16()
         ].join('');
-        return payload + PIX.CRC16(payload, PIX.constants.CRC16_LENGTH);
+        return payload + PIX.padder(PIX.CRC16(payload), PIX.constants.CRC16_LENGTH);
     }
     toString() {
         return this.payload();

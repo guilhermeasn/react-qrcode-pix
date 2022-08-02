@@ -75,14 +75,16 @@ export default class PIX {
     /*
      *  Adiciona zeros a esquerda quando necessario para manter derterminado comprimento
      */
-    public static padder(number : number, minlenght : number = 2) : string {
+    public static padder(subject : number | string, lenght : number = 2) : string {
 
-        const target : string = number.toString(); 
+        const target : string = subject.toString(); 
         let complement : string = '';
 
-        if(target.length >= minlenght) return target;
+        if(target.length > lenght) {
+            throw new Error(`O comprimento de '${ subject }' é maior que ${ lenght }`)
+        }
 
-        for(let c = 0; c < minlenght; c++) {
+        for(let c = 0; c < lenght; c++) {
             complement += '0';
         }
 
@@ -112,7 +114,7 @@ export default class PIX {
     /**
      * Calcula o Checksum CRC16
      */
-    public static CRC16(subject : string, length : number) : string {
+    public static CRC16(subject : string) : string {
         
         let result = 0xFFFF;
 
@@ -126,7 +128,7 @@ export default class PIX {
             }
         }
 
-        return result.toString(16).padStart(length, '0').toUpperCase();
+        return result.toString(16).toUpperCase();
 
     }
 
@@ -300,7 +302,7 @@ export default class PIX {
             
         ].join('');
 
-        return payload + PIX.CRC16(payload, PIX.constants.CRC16_LENGTH);
+        return payload + PIX.padder(PIX.CRC16(payload), PIX.constants.CRC16_LENGTH);
 
     }
 

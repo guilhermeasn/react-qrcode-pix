@@ -16,10 +16,10 @@ export default class PIX {
         COUNTRY_CODE: string;
         CRC16_LENGTH: number;
     };
-    static padder(number: number, minlenght?: number): string;
+    static padder(subject: number | string, lenght?: number): string;
     static EVM(ID: number, content: string): string;
     static removeAccent(subject: string, extra_filter?: RegExp | string): string;
-    static CRC16(subject: string, length: number): string;
+    static CRC16(subject: string): string;
     static verifyPixKey(pixkey: string): boolean;
     private _props;
     constructor({ pixkey, merchant, city, cep, code, amount, ignoreErrors }: PIXProps);

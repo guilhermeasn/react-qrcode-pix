@@ -21,13 +21,14 @@ var PIX = (function () {
             ignoreErrors: ignoreErrors
         };
     }
-    PIX.padder = function (number, minlenght) {
-        if (minlenght === void 0) { minlenght = 2; }
-        var target = number.toString();
+    PIX.padder = function (subject, lenght) {
+        if (lenght === void 0) { lenght = 2; }
+        var target = subject.toString();
         var complement = '';
-        if (target.length >= minlenght)
-            return target;
-        for (var c = 0; c < minlenght; c++) {
+        if (target.length > lenght) {
+            throw new Error("O comprimento de '".concat(subject, "' \u00E9 maior que ").concat(lenght));
+        }
+        for (var c = 0; c < lenght; c++) {
             complement += '0';
         }
         return (complement + target).slice(target.length);
@@ -43,7 +44,7 @@ var PIX = (function () {
         if (extra_filter === void 0) { extra_filter = /[^\w\s]/gim; }
         return subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '');
     };
-    PIX.CRC16 = function (subject, length) {
+    PIX.CRC16 = function (subject) {
         var result = 0xFFFF;
         if (subject.length > 0) {
             for (var offset = 0; offset < subject.length; offset++) {
@@ -55,7 +56,7 @@ var PIX = (function () {
                 }
             }
         }
-        return result.toString(16).padStart(length, '0').toUpperCase();
+        return result.toString(16).toUpperCase();
     };
     PIX.verifyPixKey = function (pixkey) {
         return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/is.test(pixkey) ||
@@ -119,7 +120,7 @@ var PIX = (function () {
             this.getAdditionalData(),
             this.getInitCRC16()
         ].join('');
-        return payload + PIX.CRC16(payload, PIX.constants.CRC16_LENGTH);
+        return payload + PIX.padder(PIX.CRC16(payload), PIX.constants.CRC16_LENGTH);
     };
     PIX.prototype.toString = function () {
         return this.payload();
