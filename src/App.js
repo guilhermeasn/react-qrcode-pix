@@ -29,29 +29,35 @@ function App() {
 
         <h3>Minimal Configuration</h3>
 
-        <code><pre>{`
+        <div className='join-md'>
+
+            <code><pre>{`
 <PIX
     pixkey='guilhermeasn@yahoo.com.br'
     merchant='Guilherme Neves'
     city='Paraíba do Sul'
 />
-        `}</pre></code>
+            `}</pre></code>
 
-        <PIX
-            pixkey='guilhermeasn@yahoo.com.br'
-            merchant='Guilherme Neves'
-            city='Paraíba do Sul'
+            <PIX
+                pixkey='guilhermeasn@yahoo.com.br'
+                merchant='Guilherme Neves'
+                city='Paraíba do Sul'
 
-            onLoad={ setMinimalPIX }
-        />
+                onLoad={ setMinimalPIX }
+            />
 
-        <p>{ minimalPIX }</p>
+        </div>
+
+        <p className='payload'>{ minimalPIX }</p>
 
         <hr />
 
         <h3>Fully configuration</h3>
 
-        <code><pre>{`
+        <div className='join-md'>
+
+            <code><pre>{`
 <PIX
     pixkey='guilhermeasn@yahoo.com.br'
     merchant='Guilherme Neves'
@@ -70,36 +76,35 @@ function App() {
     removeQrCodeBehindLogo={ true }
     qrStyle='dots'
 />
-        `}</pre></code>
+            `}</pre></code>
 
-        <PIX
-            pixkey='guilhermeasn@yahoo.com.br'
-            merchant='Guilherme Neves'
-            city='Paraíba do Sul'
-            cep='25.850-000'
-            code={ 'RQP' + now }
-            amount={ 100 }
+            <PIX
+                pixkey='guilhermeasn@yahoo.com.br'
+                merchant='Guilherme Neves'
+                city='Paraíba do Sul'
+                cep='25.850-000'
+                code={ 'RQP' + now }
+                amount={ 100 }
 
-            onLoad={ setFullPIX }
+                onLoad={ setFullPIX }
 
-            ecLevel='Q'
+                ecLevel='Q'
 
-            logoImage='./PIX-icon.svg'
-            logoWidth={ 50 }
-            logoHeight={ 50 }
-            removeQrCodeBehindLogo={ true }
-            qrStyle='dots'
+                logoImage='./PIX-icon.svg'
+                logoWidth={ 50 }
+                logoHeight={ 50 }
+                removeQrCodeBehindLogo={ true }
+                qrStyle='dots'
 
-        />
+            />
 
-        <p>{ fullPIX }</p>
+        </div>
+
+        <p className='payload'>{ fullPIX }</p>
 
         <hr />
 
-        <div style={{
-            display: 'flex',
-            justifyContent: 'space-between'
-        }}>
+        <div className='join'>
             <small>
                 MIT License
             </small>

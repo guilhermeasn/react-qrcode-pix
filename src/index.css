@@ -8,11 +8,35 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    color: sienna;
+    font-size: 16px;
 }
 
 canvas, svg {
     display: block;
     padding: 20px 0;
+}
+
+.payload {
+    overflow-x: scroll;
+    white-space: nowrap;
+    background-color: #ccc;
+    padding: 15px;
+}
+
+.join {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+
+    .join-md {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
 }
