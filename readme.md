@@ -1,5 +1,7 @@
 # React QRcode PIX
 
+[![npm](https://img.shields.io/npm/v/react-qrcode-pix.svg)](https://www.npmjs.com/package/react-qrcode-pix/v/latest)
+
 [![downloads](https://img.shields.io/npm/dt/react-qrcode-pix)](https://www.npmjs.com/package/react-qrcode-pix/)
 
 [![Tests](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node_tests.yml/badge.svg)](https://github.com/guilhermeasn/react-qrcode-pix/actions/workflows/node_tests.yml)
