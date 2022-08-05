@@ -108,7 +108,7 @@ export default class PIX {
      * Altera ou remove caracteres acentuados e especiais 
      */
     public static removeAccent(subject : string, extra_filter : RegExp | string = /[^\w\s]/gim) : string {
-        return subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '');
+        return !!String.prototype.normalize ? subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '') : subject.replace(extra_filter, '');
     }
 
     /**

@@ -42,7 +42,7 @@ var PIX = (function () {
     };
     PIX.removeAccent = function (subject, extra_filter) {
         if (extra_filter === void 0) { extra_filter = /[^\w\s]/gim; }
-        return subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '');
+        return !!String.prototype.normalize ? subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '') : subject.replace(extra_filter, '');
     };
     PIX.CRC16 = function (subject) {
         var result = 0xFFFF;

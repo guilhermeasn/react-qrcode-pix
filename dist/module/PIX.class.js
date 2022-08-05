@@ -37,7 +37,7 @@ export default class PIX {
         return PIX.padder(ID) + PIX.padder(content.length) + content;
     }
     static removeAccent(subject, extra_filter = /[^\w\s]/gim) {
-        return subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '');
+        return !!String.prototype.normalize ? subject.normalize("NFD").replace(/[\u0300-\u036f]/g, '').replace(extra_filter, '') : subject.replace(extra_filter, '');
     }
     static CRC16(subject) {
         let result = 0xFFFF;
