@@ -2,7 +2,7 @@ import React from 'react';
 import PixPayload from './PIX.class';
 import type { PIXProps } from './PIX.class';
 import Component from './Component.class';
-import type { IProps } from 'react-qrcode-logo';
+import type { QrCodeProps } from 'react-qrcode-pretty';
 
 
 /**
@@ -35,7 +35,7 @@ export function PIX({
     ignoreErrors = false,
     onLoad = (_ : string) => {},
     ...settings
-} : PIXProps & IProps & { onLoad ?: (payload : string) => void }) {
+} : PIXProps & Omit<QrCodeProps, 'value'> & { onLoad ?: (payload : string) => void }) {
 
     if(!settings.size) settings.size = 256;
 

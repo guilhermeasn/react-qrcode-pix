@@ -30,14 +30,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 var react_1 = __importDefault(require("react"));
-var react_qrcode_logo_1 = require("react-qrcode-logo");
+var react_qrcode_pretty_1 = require("react-qrcode-pretty");
 var Component = (function (_super) {
     __extends(Component, _super);
     function Component() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Component.prototype.render = function () {
-        return react_1["default"].createElement(react_qrcode_logo_1.QRCode, __assign(__assign({}, this.props.settings), { value: this.props.payload }));
+        return react_1["default"].createElement(react_qrcode_pretty_1.QrCode, __assign(__assign({}, this.props.settings), { value: this.props.payload }));
     };
     Component.prototype.componentDidMount = function () {
         if (typeof this.props.onLoad === 'function') {

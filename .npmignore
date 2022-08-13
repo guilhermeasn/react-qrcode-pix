@@ -1,0 +1,11 @@
+.github/
+.old_files/
+.vscode/
+example/
+node_modules/
+src/
+tests/
+
+jest.config.js
+tsconfig.json
+tsconfig.m.json
