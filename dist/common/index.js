@@ -24,9 +24,8 @@ function payload(props) {
 }
 exports.payload = payload;
 function PIX(_a) {
-    var pixkey = _a.pixkey, merchant = _a.merchant, city = _a.city, cep = _a.cep, code = _a.code, amount = _a.amount, _b = _a.ignoreErrors, ignoreErrors = _b === void 0 ? false : _b, _c = _a.onLoad, onLoad = _c === void 0 ? function (_) { } : _c, settings = __rest(_a, ["pixkey", "merchant", "city", "cep", "code", "amount", "ignoreErrors", "onLoad"]);
-    if (!settings.size)
-        settings.size = 256;
+    var _b, _c;
+    var pixkey = _a.pixkey, merchant = _a.merchant, city = _a.city, cep = _a.cep, code = _a.code, amount = _a.amount, _d = _a.ignoreErrors, ignoreErrors = _d === void 0 ? false : _d, _e = _a.onLoad, onLoad = _e === void 0 ? function (_) { } : _e, settings = __rest(_a, ["pixkey", "merchant", "city", "cep", "code", "amount", "ignoreErrors", "onLoad"]);
     try {
         return react_1["default"].createElement(Component_class_1["default"], {
             payload: payload({ pixkey: pixkey, merchant: merchant, city: city, cep: cep, code: code, amount: amount, ignoreErrors: ignoreErrors }),
@@ -39,8 +38,8 @@ function PIX(_a) {
             console.error(error);
         return react_1["default"].createElement('div', {
             style: {
-                width: settings.size,
-                height: settings.size,
+                width: (_b = settings === null || settings === void 0 ? void 0 : settings.size) !== null && _b !== void 0 ? _b : 256,
+                height: (_c = settings === null || settings === void 0 ? void 0 : settings.size) !== null && _c !== void 0 ? _c : 256,
                 margin: '10px 0',
                 display: 'flex',
                 justifyContent: 'center',

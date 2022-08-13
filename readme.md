@@ -42,7 +42,7 @@ yarn add react-qrcode-pix
  - **onLoad** ```<function>```: Callback para receber o payload (opcional).
  - **ignoreErrors** ```<boolean>```: Para não validar as informações (opcional).
 
-*Veja as propriedades relacionadas ao qrcode [aqui](https://github.com/gcoro/react-qrcode-logo#props).*
+*Veja as propriedades relacionadas ao qrcode [aqui](https://github.com/guilhermeasn/react-qrcode-pretty#qrcode-props).*
 
 ### Formatos válidos de chave PIX (pixkey):
 

@@ -37,8 +37,6 @@ export function PIX({
     ...settings
 } : PIXProps & Omit<QrCodeProps, 'value'> & { onLoad ?: (payload : string) => void }) {
 
-    if(!settings.size) settings.size = 256;
-
     try {
 
         return React.createElement(Component, {
@@ -53,8 +51,8 @@ export function PIX({
 
         return React.createElement('div', {
             style: {
-                width: settings.size,
-                height: settings.size,
+                width: settings?.size ?? 256,
+                height: settings?.size ?? 256,
                 margin: '10px 0',
                 display: 'flex',
                 justifyContent: 'center',
