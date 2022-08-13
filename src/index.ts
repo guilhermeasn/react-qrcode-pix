@@ -37,6 +37,10 @@ export function PIX({
     ...settings
 } : PIXProps & Omit<QrCodeProps, 'value'> & { onLoad ?: (payload : string) => void }) {
 
+    if(!settings?.size && !settings?.resize) {
+        settings.resize = 256
+    }
+
     try {
 
         return React.createElement(Component, {

@@ -26,6 +26,9 @@ exports.payload = payload;
 function PIX(_a) {
     var _b, _c, _d, _e;
     var pixkey = _a.pixkey, merchant = _a.merchant, city = _a.city, cep = _a.cep, code = _a.code, amount = _a.amount, _f = _a.ignoreErrors, ignoreErrors = _f === void 0 ? false : _f, _g = _a.onLoad, onLoad = _g === void 0 ? function (_) { } : _g, settings = __rest(_a, ["pixkey", "merchant", "city", "cep", "code", "amount", "ignoreErrors", "onLoad"]);
+    if (!(settings === null || settings === void 0 ? void 0 : settings.size) && !(settings === null || settings === void 0 ? void 0 : settings.resize)) {
+        settings.resize = 256;
+    }
     try {
         return react_1["default"].createElement(Component_class_1["default"], {
             payload: payload({ pixkey: pixkey, merchant: merchant, city: city, cep: cep, code: code, amount: amount, ignoreErrors: ignoreErrors }),
