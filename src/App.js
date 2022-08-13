@@ -43,10 +43,7 @@ function App() {
                 pixkey='guilhermeasn@yahoo.com.br'
                 merchant='Guilherme Neves'
                 city='Paraíba do Sul'
-
                 onLoad={ setMinimalPIX }
-
-                resize={ 256 }
             />
 
         </div>
