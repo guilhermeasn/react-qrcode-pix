@@ -51,8 +51,8 @@ export function PIX({
 
         return React.createElement('div', {
             style: {
-                width: settings?.size ?? 256,
-                height: settings?.size ?? 256,
+                width: settings?.size ?? settings?.resize ?? 256,
+                height: settings?.size ?? settings?.resize ?? 256,
                 margin: '10px 0',
                 display: 'flex',
                 justifyContent: 'center',
