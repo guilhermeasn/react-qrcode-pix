@@ -45,6 +45,8 @@ function App() {
                 city='Paraíba do Sul'
 
                 onLoad={ setMinimalPIX }
+
+                resize={ 256 }
             />
 
         </div>
@@ -67,14 +69,19 @@ function App() {
     amount={ 100 }
 
     onLoad={ setFullPIX }
+    image='./PIX-icon.svg'
+    variant='dots'
 
-    ecLevel='Q'
+    resize={ 400 }
 
-    logoImage='./PIX-icon.svg'
-    logoWidth={ 50 }
-    logoHeight={ 50 }
-    removeQrCodeBehindLogo={ true }
-    qrStyle='dots'
+    color={{
+        eyes: '#253',
+        body: '#375'
+    }}
+
+    padding={ 14 }
+    bgColor='#dfe'
+    bgRounded
 />
             `}</pre></code>
 
@@ -87,15 +94,19 @@ function App() {
                 amount={ 100 }
 
                 onLoad={ setFullPIX }
+                image='./PIX-icon.svg'
+                variant='dots'
 
-                ecLevel='Q'
+                resize={ 400 }
 
-                logoImage='./PIX-icon.svg'
-                logoWidth={ 50 }
-                logoHeight={ 50 }
-                removeQrCodeBehindLogo={ true }
-                qrStyle='dots'
+                color={{
+                    eyes: '#253',
+                    body: '#375'
+                }}
 
+                padding={ 14 }
+                bgColor='#dfe'
+                bgRounded
             />
 
         </div>

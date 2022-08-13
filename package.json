@@ -5,7 +5,7 @@
   "dependencies": {
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-qrcode-pix": "^3.1.0",
+    "react-qrcode-pix": "4.0.0",
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },
