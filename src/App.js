@@ -69,8 +69,6 @@ function App() {
     image='./PIX-icon.svg'
     variant='dots'
 
-    resize={ 400 }
-
     color={{
         eyes: '#253',
         body: '#375'
@@ -93,8 +91,6 @@ function App() {
                 onLoad={ setFullPIX }
                 image='./PIX-icon.svg'
                 variant='dots'
-
-                resize={ 400 }
 
                 color={{
                     eyes: '#253',
