@@ -58,7 +58,7 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
 
  - Configuração mínima, sem valor definido:
   
-```
+```JS
     <PIX
         pixkey='guilhermeasn@yahoo.com.br'
         merchant='Guilherme Neves'
@@ -68,7 +68,7 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
 
  - Configuração completa:
   
-```
+```JS
     <PIX
         pixkey='guilhermeasn@yahoo.com.br'
         merchant='Guilherme Neves'
