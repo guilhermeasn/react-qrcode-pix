@@ -1,4 +1,4 @@
-import { PIX, payload } from '../src';
+import { PixCanvas, payload } from '../src';
 import data from './data.json';
 
 describe('Testando o index do pacote', () => {
@@ -30,7 +30,7 @@ describe('Testando o index do pacote', () => {
 
     test('Div de erro de configuracao', () => {
 
-        const component = PIX({
+        const component = PixCanvas({
             pixkey:   'Invalid Key',
             merchant: data.merchant,
             city:     data.city
@@ -44,7 +44,7 @@ describe('Testando o index do pacote', () => {
 
     test('QRCode com o PIX', () => {
 
-        const component = PIX({
+        const component = PixCanvas({
             pixkey:   data.pixkey,
             merchant: data.merchant,
             city:     data.city,
