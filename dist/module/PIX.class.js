@@ -54,11 +54,11 @@ export default class PIX {
         return result.toString(16).toUpperCase();
     }
     static verifyPixKey(pixkey) {
-        return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/is.test(pixkey) ||
-            /^[0-9]{11}$/is.test(pixkey) ||
-            /^[0-9]{14}$/is.test(pixkey) ||
-            /^\+[0-9]{12,13}$/is.test(pixkey) ||
-            /^[\w-]{32,36}$/is.test(pixkey));
+        return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(pixkey) ||
+            /^[0-9]{11}$/i.test(pixkey) ||
+            /^[0-9]{14}$/i.test(pixkey) ||
+            /^\+[0-9]{12,13}$/i.test(pixkey) ||
+            /^[\w-]{32,36}$/i.test(pixkey));
     }
     get(prop) {
         return this._props[prop];

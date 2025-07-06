@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var PIX = (function () {
     function PIX(_a) {
         var pixkey = _a.pixkey, merchant = _a.merchant, city = _a.city, cep = _a.cep, code = _a.code, amount = _a.amount, _b = _a.ignoreErrors, ignoreErrors = _b === void 0 ? false : _b;
@@ -59,11 +59,11 @@ var PIX = (function () {
         return result.toString(16).toUpperCase();
     };
     PIX.verifyPixKey = function (pixkey) {
-        return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/is.test(pixkey) ||
-            /^[0-9]{11}$/is.test(pixkey) ||
-            /^[0-9]{14}$/is.test(pixkey) ||
-            /^\+[0-9]{12,13}$/is.test(pixkey) ||
-            /^[\w-]{32,36}$/is.test(pixkey));
+        return (/^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(pixkey) ||
+            /^[0-9]{11}$/i.test(pixkey) ||
+            /^[0-9]{14}$/i.test(pixkey) ||
+            /^\+[0-9]{12,13}$/i.test(pixkey) ||
+            /^[\w-]{32,36}$/i.test(pixkey));
     };
     PIX.prototype.get = function (prop) {
         return this._props[prop];
@@ -135,4 +135,4 @@ var PIX = (function () {
     };
     return PIX;
 }());
-exports["default"] = PIX;
+exports.default = PIX;

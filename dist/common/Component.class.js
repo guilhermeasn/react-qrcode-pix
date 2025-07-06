@@ -28,7 +28,7 @@ var __assign = (this && this.__assign) || function () {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var react_qrcode_pretty_1 = require("react-qrcode-pretty");
 var Component = (function (_super) {
@@ -37,7 +37,7 @@ var Component = (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     Component.prototype.render = function () {
-        return react_1["default"].createElement(react_qrcode_pretty_1.QrCode, __assign(__assign({}, this.props.settings), { value: this.props.payload }));
+        return react_1.default.createElement(react_qrcode_pretty_1.QrcodeCanvas, __assign(__assign({}, this.props.settings), { value: this.props.payload }));
     };
     Component.prototype.componentDidMount = function () {
         if (typeof this.props.onLoad === 'function') {
@@ -55,5 +55,5 @@ var Component = (function (_super) {
         }
     };
     return Component;
-}(react_1["default"].Component));
-exports["default"] = Component;
+}(react_1.default.Component));
+exports.default = Component;

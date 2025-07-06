@@ -1,9 +1,9 @@
 import React from 'react';
-import type { PIXProps } from './PIX.class';
+import type { QrcodeProps } from 'react-qrcode-pretty';
 import Component from './Component.class';
-import type { QrCodeProps } from 'react-qrcode-pretty';
+import type { PIXProps } from './PIX.class';
 export declare function payload(props: PIXProps): string;
-export declare function PIX({ pixkey, merchant, city, cep, code, amount, ignoreErrors, onLoad, ...settings }: PIXProps & Omit<QrCodeProps, 'value'> & {
+export declare function PIX({ pixkey, merchant, city, cep, code, amount, ignoreErrors, onLoad, ...settings }: PIXProps & Omit<QrcodeProps<'canvas'>, 'value'> & {
     onLoad?: (payload: string) => void;
 }): React.CElement<import("./Component.class").ComponentProps, Component> | React.DetailedReactHTMLElement<{
     style: {

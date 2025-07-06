@@ -1,8 +1,8 @@
 import React from 'react';
-import PixPayload from './PIX.class';
-import type { PIXProps } from './PIX.class';
+import type { QrcodeProps } from 'react-qrcode-pretty';
 import Component from './Component.class';
-import type { QrCodeProps } from 'react-qrcode-pretty';
+import type { PIXProps } from './PIX.class';
+import PixPayload from './PIX.class';
 
 
 /**
@@ -35,11 +35,7 @@ export function PIX({
     ignoreErrors = false,
     onLoad = (_ : string) => {},
     ...settings
-} : PIXProps & Omit<QrCodeProps, 'value'> & { onLoad ?: (payload : string) => void }) {
-
-    if(!settings?.size && !settings?.resize) {
-        settings.resize = 256
-    }
+} : PIXProps & Omit<QrcodeProps<'canvas'>, 'value'> & { onLoad ?: (payload : string) => void }) {
 
     try {
 
@@ -55,8 +51,8 @@ export function PIX({
 
         return React.createElement('div', {
             style: {
-                width: settings?.size ?? settings?.resize ?? 256,
-                height: settings?.size ?? settings?.resize ?? 256,
+                width: settings?.size ?? 256,
+                height: settings?.size ?? 256,
                 margin: '10px 0',
                 display: 'flex',
                 justifyContent: 'center',

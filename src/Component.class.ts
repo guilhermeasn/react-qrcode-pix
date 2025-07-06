@@ -1,9 +1,9 @@
 import React from 'react';
-import { QrCode } from 'react-qrcode-pretty';
-import type { QrCodeProps } from 'react-qrcode-pretty';
+import type { QrcodeProps } from 'react-qrcode-pretty';
+import { QrcodeCanvas } from 'react-qrcode-pretty';
 
 export type ComponentProps = {
-    settings : Omit<QrCodeProps, 'value'>,
+    settings : Omit<QrcodeProps<'canvas'>, 'value'>,
     payload  : string,
     onLoad   : (payload : string) => void
 }
@@ -17,7 +17,7 @@ export default class Component extends React.Component<ComponentProps> {
 
     render() {
 
-        return React.createElement(QrCode, {
+        return React.createElement(QrcodeCanvas, {
             ...this.props.settings,
             value: this.props.payload
         });

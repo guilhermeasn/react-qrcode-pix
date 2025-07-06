@@ -138,11 +138,11 @@ export default class PIX {
     public static verifyPixKey(pixkey : string) : boolean {
 
         return (
-            /^[^\s@]+@[^\s@]+\.[^\s@]+$/is.test(pixkey) ||  // Chave do tipo email
-            /^[0-9]{11}$/is.test(pixkey)                ||  // Chave do tipo CPF
-            /^[0-9]{14}$/is.test(pixkey)                ||  // Chave do tipo CNPJ
-            /^\+[0-9]{12,13}$/is.test(pixkey)           ||  // Chave do tipo telefone
-            /^[\w-]{32,36}$/is.test(pixkey)                 // Chave aleatoria
+            /^[^\s@]+@[^\s@]+\.[^\s@]+$/i.test(pixkey) ||  // Chave do tipo email
+            /^[0-9]{11}$/i.test(pixkey)                ||  // Chave do tipo CPF
+            /^[0-9]{14}$/i.test(pixkey)                ||  // Chave do tipo CNPJ
+            /^\+[0-9]{12,13}$/i.test(pixkey)           ||  // Chave do tipo telefone
+            /^[\w-]{32,36}$/i.test(pixkey)                 // Chave aleatoria
         );
     
     }
