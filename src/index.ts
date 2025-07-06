@@ -4,6 +4,7 @@ import Component from './Component.class';
 import type { PIXProps } from './PIX.class';
 import PixPayload from './PIX.class';
 
+export * from 'react-qrcode-pretty';
 
 /**
  * REACT-QRCODE-PIX
@@ -22,10 +23,22 @@ export function payload(props : PIXProps) {
 
 }
 
+export type PixCanvasComponentProps = PIXProps &
+  Omit<QrcodeProps<'canvas'>, 'value'> & {
+    onLoad?: (payload: string) => void;
+    children?: React.ReactNode;
+  };
+
+export type PixSVGComponentProps = PIXProps &
+  Omit<QrcodeProps<'SVG'>, 'value'> & {
+    onLoad?: (payload: string) => void;
+    children?: React.ReactNode;
+  };
+
 /**
  * Qrcode estatico do PIX
  */
-export function PIX({
+export function PixCanvas({
     pixkey,
     merchant,
     city,
@@ -35,12 +48,17 @@ export function PIX({
     ignoreErrors = false,
     onLoad = (_ : string) => {},
     ...settings
-} : PIXProps & Omit<QrcodeProps<'canvas'>, 'value'> & { onLoad ?: (payload : string) => void }) {
+}: PixCanvasComponentProps) : JSX.Element {
+
+    if(typeof settings.size === 'undefined') {
+      settings.size = 256;
+    }
 
     try {
 
-        return React.createElement(Component, {
+        return React.createElement(Component<'canvas'>, {
             payload: payload({ pixkey, merchant, city, cep, code, amount, ignoreErrors }),
+            qrcodeType: 'canvas',
             settings,
             onLoad
         });
@@ -51,8 +69,8 @@ export function PIX({
 
         return React.createElement('div', {
             style: {
-                width: settings?.size ?? 256,
-                height: settings?.size ?? 256,
+                width: settings?.size,
+                height: settings?.size,
                 margin: '10px 0',
                 display: 'flex',
                 justifyContent: 'center',
@@ -72,4 +90,59 @@ export function PIX({
 
 } 
 
-export default PIX;
+/**
+ * Qrcode estatico do PIX em SVG
+ */
+export function PixSVG({
+    pixkey,
+    merchant,
+    city,
+    cep,
+    code,
+    amount,
+    ignoreErrors = false,
+    onLoad = (_ : string) => {},
+    ...settings
+}: PixSVGComponentProps) : JSX.Element {
+
+    if(typeof settings.size === 'undefined') {
+      settings.size = 256;
+    }
+
+    try {
+
+        return React.createElement(Component<'SVG'>, {
+            payload: payload({ pixkey, merchant, city, cep, code, amount, ignoreErrors }),
+            qrcodeType: 'SVG',
+            settings,
+            onLoad
+        });
+
+    } catch(error) {
+
+        if(process.env.NODE_ENV !== 'test') console.error(error);
+
+        return React.createElement('div', {
+            style: {
+                width: settings?.size,
+                height: settings?.size,
+                margin: '10px 0',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#e5d5d5',
+                border: 'solid 1px',
+                borderRadius: '10px',
+                borderColor: '#440000',
+                textAlign: 'center',
+                color: '#770000',
+                fontSize: '18px',
+                opacity: '0.75'
+            }
+        }, 'PIX não pode ser carregado!');
+
+    }
+
+} 
+
+export default PixCanvas;

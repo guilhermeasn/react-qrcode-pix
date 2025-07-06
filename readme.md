@@ -59,7 +59,7 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
  - Configuração mínima, sem valor definido:
   
 ```JS
-    <PIX
+    <PixCanvas
         pixkey='guilhermeasn@yahoo.com.br'
         merchant='Guilherme Neves'
         city='Paraíba do Sul'
@@ -69,7 +69,7 @@ Você pode ver os exemplos em funcionamento [clicando aqui](https://guilhermeasn
  - Configuração completa:
   
 ```JS
-    <PIX
+    <PixCanvas
         pixkey='guilhermeasn@yahoo.com.br'
         merchant='Guilherme Neves'
         city='Paraíba do Sul'
